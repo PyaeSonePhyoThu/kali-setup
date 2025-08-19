@@ -23,6 +23,7 @@ sudo apt-get install -y gobuster
 sudo apt-get install -y rlwrap
 sudo apt-get install -y nuclei
 sudo apt-get install -y zenity
+sudo apt install pipx git
 
 # Install the latest version of nuclei using go
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
@@ -56,3 +57,7 @@ chmod +x $TOOLS_DIR/linpeas.sh
 gunzip /usr/share/wordlists/rockyou.txt.gz
 
 # Install latest netexec 
+pipx ensurepath
+pipx install git+https://github.com/Pennyw0rth/NetExec
+
+# Install BloodHound
