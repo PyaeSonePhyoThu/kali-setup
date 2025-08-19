@@ -28,9 +28,6 @@ sudo apt install pipx git
 # Install the latest version of nuclei using go
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 
-# Install Haiti-Hash gem
-sudo gem install haiti-hash
-
 # Install Sublime Text
 sudo apt-get install -y sublime-text
 
@@ -48,6 +45,7 @@ rm rustscan_2.2.3_amd64.deb
 
 # Clone Trickest Wordlists
 git clone https://github.com/trickest/wordlists.git $TOOLS_DIR/wordlists
+git clone https://github.com/danielmiessler/SecLists.git $TOOLS_DIR/wordlists/SecLists
 
 # Download linpeas.sh
 wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -P $TOOLS_DIR
@@ -55,9 +53,19 @@ chmod +x $TOOLS_DIR/linpeas.sh
 
 # Unzip rockyou.txt.gz
 gunzip /usr/share/wordlists/rockyou.txt.gz
+mv /usr/share/wordlists/rockyou.txt $TOOLS_DIR/rockyou.txt
 
 # Install latest netexec 
 pipx ensurepath
 pipx install git+https://github.com/Pennyw0rth/NetExec
+
+# Install Penelope 
+wget https://raw.githubusercontent.com/brightio/penelope/refs/heads/main/penelope.py -P $TOOLS_DIR
+
+# Install Impacket-Tools
+python3 -m pipx install impacket
+
+# Install BloodyAD
+git clone https://github.com/CravateRouge/bloodyAD $TOOLS_DIR/bloodyAD
 
 # Install BloodHound
