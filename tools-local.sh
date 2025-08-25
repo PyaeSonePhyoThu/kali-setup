@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create Tools directory
-TOOLS_DIR="/home/kali/Desktop/Tools"
+TOOLS_DIR="/root/Desktop/Tools"
 mkdir -p $TOOLS_DIR
 
 # Add Sublime Text repository and update
