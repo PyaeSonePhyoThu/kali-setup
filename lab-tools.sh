@@ -54,17 +54,9 @@ rm rustscan_2.2.3_amd64.deb
 git clone https://github.com/trickest/wordlists.git $TOOLS_DIR/wordlists
 git clone https://github.com/danielmiessler/SecLists.git $TOOLS_DIR/wordlists/SecLists
 
-# Download linpeas.sh
-wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -P $TOOLS_DIR
-chmod +x $TOOLS_DIR/linpeas.sh
-
 # Unzip rockyou.txt.gz
 gunzip /usr/share/wordlists/rockyou.txt.gz
 mv /usr/share/wordlists/rockyou.txt $TOOLS_DIR/rockyou.txt
-
-# Install latest netexec 
-pipx ensurepath
-pipx install git+https://github.com/Pennyw0rth/NetExec
 
 # Install Penelope 
 wget https://raw.githubusercontent.com/brightio/penelope/refs/heads/main/penelope.py -P $TOOLS_DIR
