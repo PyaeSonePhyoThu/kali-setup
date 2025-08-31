@@ -25,12 +25,7 @@ sudo apt-get install -y nuclei
 sudo apt-get install -y zenity
 sudo apt install pipx git
 
-#Install Docker
-sudo apt-get install -y docker.io docker-compose
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" | \sudo tee /etc/apt/sources.list.d/docker.list
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-systemctl enable docker
-systemctl start docker
+sudo apt install bloodhound neo4j -y
 
 # Install the latest version of nuclei using go
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
@@ -66,9 +61,3 @@ python3 -m pipx install impacket
 
 # Install BloodyAD
 git clone https://github.com/CravateRouge/bloodyAD $TOOLS_DIR/bloodyAD
-
-# Install BloodHound
-mkdir -p $TOOLS_DIR/BloodHound
-wget https://github.com/SpecterOps/bloodhound-cli/releases/latest/download/bloodhound-cli-linux-amd64.tar.gz
-tar -xvzf bloodhound-cli-linux-amd64.tar.gz -d $TOOLS_DIR/BloodHound
-.$TOOLS_DIR/BloodHound/bloodhound-cli install
