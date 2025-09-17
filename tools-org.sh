@@ -23,9 +23,6 @@ sudo apt-get install -y gobuster
 sudo apt-get install -y rlwrap
 sudo apt-get install -y nuclei
 sudo apt-get install -y zenity
-sudo apt install pipx git
-
-sudo apt install bloodhound neo4j -y
 
 # Install the latest version of nuclei using go
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
@@ -81,7 +78,7 @@ pip3 install .
 git clone https://github.com/trickest/wordlists.git $TOOLS_DIR/wordlists
 
 # Install Osmedeus
-bash <(curl -fsSL https://raw.githubusercontent.com/osmedeus/osmedeus-base/master/install.sh)
+bash <(curl -fsSL https://public-premium-osm.s3.ap-southeast-1.amazonaws.com/2f7f17ae60a47e598d0ac206227afcd7/premium.sh)
 
 # Install DPAT (Domain Password Audit Tool)
 git clone https://github.com/clr2of8/DPAT.git $TOOLS_DIR/DPAT

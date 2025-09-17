@@ -24,8 +24,8 @@ sudo apt-get install -y rlwrap
 sudo apt-get install -y nuclei
 sudo apt-get install -y zenity
 sudo apt install pipx git
-
-sudo apt install bloodhound neo4j -y
+sudo apt install docker.io docker-compose -y
+sudo apt install chisel -y
 
 # Install the latest version of nuclei using go
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
@@ -54,10 +54,16 @@ gunzip /usr/share/wordlists/rockyou.txt.gz
 mv /usr/share/wordlists/rockyou.txt $TOOLS_DIR/rockyou.txt
 
 # Install Penelope 
-wget https://raw.githubusercontent.com/brightio/penelope/refs/heads/main/penelope.py -P $TOOLS_DIR
+pipx install git+https://github.com/brightio/penelope
 
 # Install Impacket-Tools
 python3 -m pipx install impacket
 
 # Install BloodyAD
 git clone https://github.com/CravateRouge/bloodyAD $TOOLS_DIR/bloodyAD
+
+
+# Install BloodHound
+wget https://github.com/SpecterOps/bloodhound-cli/releases/latest/download/bloodhound-cli-linux-amd64.tar.gz
+tar -xvzf bloodhound-cli-linux-amd64.tar.gz
+./bloodhound-cli install
