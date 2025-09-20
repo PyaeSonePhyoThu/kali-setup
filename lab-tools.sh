@@ -23,8 +23,7 @@ sudo apt-get install -y gobuster
 sudo apt-get install -y rlwrap
 sudo apt-get install -y nuclei
 sudo apt-get install -y zenity
-sudo apt install pipx git
-sudo apt install docker.io docker-compose -y
+sudo apt install pipx git -y
 sudo apt install chisel -y
 
 # Install the latest version of nuclei using go
@@ -64,6 +63,11 @@ git clone https://github.com/CravateRouge/bloodyAD $TOOLS_DIR/bloodyAD
 
 
 # Install BloodHound
-wget https://github.com/SpecterOps/bloodhound-cli/releases/latest/download/bloodhound-cli-linux-amd64.tar.gz
-tar -xvzf bloodhound-cli-linux-amd64.tar.gz
-./bloodhound-cli install
+sudo apt install bloodhound neo4j -y
+
+# Clone and set up SploitScan
+git clone https://github.com/xaitax/SploitScan.git $TOOLS_DIR/SploitScan
+cd $TOOLS_DIR/SploitScan
+pip install -r requirements.txt
+chmod +x sploitscan.py
+cd $TOOLS_DIR
