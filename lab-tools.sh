@@ -4,6 +4,7 @@
 TOOLS_DIR="/kali/Desktop/Tools"
 mkdir -p $TOOLS_DIR
 
+
 # Add Sublime Text repository and update
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -17,14 +18,12 @@ sudo updatedb
 # Install tools and dependencies
 sudo apt-get install -y golang
 sudo apt-get install -y remmina
-sudo apt-get install -y seclists
 sudo apt-get install -y netexec
-sudo apt-get install -y gobuster
 sudo apt-get install -y rlwrap
 sudo apt-get install -y nuclei
-sudo apt-get install -y zenity
-sudo apt install pipx git -y
-sudo apt install chisel -y
+sudo apt-get install pipx git -y
+sudo apt-get install chisel -y
+sudo apt-get install gobuster ffuf dirbuster feroxbuster wfuzz -y
 
 # Install the latest version of nuclei using go
 go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
@@ -50,7 +49,6 @@ git clone https://github.com/danielmiessler/SecLists.git $TOOLS_DIR/wordlists/Se
 
 # Unzip rockyou.txt.gz
 gunzip /usr/share/wordlists/rockyou.txt.gz
-mv /usr/share/wordlists/rockyou.txt $TOOLS_DIR/rockyou.txt
 
 # Install Penelope 
 pipx install git+https://github.com/brightio/penelope
@@ -61,13 +59,13 @@ python3 -m pipx install impacket
 # Install BloodyAD
 git clone https://github.com/CravateRouge/bloodyAD $TOOLS_DIR/bloodyAD
 
-
 # Install BloodHound
 sudo apt install bloodhound neo4j -y
 
 # Clone and set up SploitScan
 git clone https://github.com/xaitax/SploitScan.git $TOOLS_DIR/SploitScan
 cd $TOOLS_DIR/SploitScan
+python venv venv
+source /venv/bin/activate
 pip install -r requirements.txt
-chmod +x sploitscan.py
-cd $TOOLS_DIR
+deactivate
